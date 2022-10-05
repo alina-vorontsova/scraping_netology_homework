@@ -24,7 +24,7 @@ def get_info():
     for link in links:
         text = requests.get(link).text
         soup = bs4.BeautifulSoup(text, features="html.parser")
-        article_text = soup.find(class_="article-formatted-body article-formatted-body article-formatted-body_version-2").text
+        article_text = soup.find(class_="article-formatted-body").text.strip()
 
         for keyword in KEYWORDS:
             if keyword in article_text:
